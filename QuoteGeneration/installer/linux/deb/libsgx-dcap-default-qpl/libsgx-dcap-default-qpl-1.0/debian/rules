@@ -4,5 +4,8 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+override_dh_shlibdeps:
+	dh_shlibdeps -l$(shell pwd)/debian/libsgx-dcap-default-qpl/usr/lib64/x86_64-linux-gnu --dpkg-shlibdeps-params=--ignore-missing-info
+
 %:
 	dh $@
